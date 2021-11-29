@@ -1,0 +1,59 @@
+﻿@model Emigrantes.Data.Necesidades
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Necesidades</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreNecesidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreNecesidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emigrante.TipoIdentificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emigrante.TipoIdentificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.migrantesNecesidad.Necesidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.migrantesNecesidad.Necesidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prioridadNecesidad.Prioridad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prioridadNecesidad.Prioridad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

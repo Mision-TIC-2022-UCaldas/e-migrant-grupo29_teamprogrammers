@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Emigrantes.Servicios>
+
+@{
+    ViewBag.Title = "Activos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Activos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Servicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Maximo_Emigrantes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Inicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_fin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado_Servicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Entidad.Razon_Social)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Estado_Servicio == "Inactivo")
+        {
+            <h1>No hay servicios activos</h1>            
+        }
+        else
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Servicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Maximo_Emigrantes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Inicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_fin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado_Servicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Entidad.Razon_Social)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    }
+
+</table>

@@ -133,6 +133,7 @@
     <Compile Include="Controllers\EntidadsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NecesidadesController.cs" />
+    <Compile Include="Controllers\ServiciosController.cs" />
     <Compile Include="Emergencias.cs">
       <DependentUpon>ModelEmigrante.tt</DependentUpon>
     </Compile>
@@ -143,6 +144,9 @@
       <DependentUpon>ModelEmigrante.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidad.cs">
+      <DependentUpon>ModelEmigrante.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoServicio.cs">
       <DependentUpon>ModelEmigrante.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -262,16 +266,22 @@
     <Content Include="Views\Emigrantes\Details.cshtml" />
     <Content Include="Views\Emigrantes\Edit.cshtml" />
     <Content Include="Views\Emigrantes\Index.cshtml" />
-    <Content Include="Views\Entidads\Create.cshtml" />
-    <Content Include="Views\Entidads\Delete.cshtml" />
-    <Content Include="Views\Entidads\Details.cshtml" />
-    <Content Include="Views\Entidads\Edit.cshtml" />
-    <Content Include="Views\Entidads\Index.cshtml" />
     <Content Include="Views\Necesidades\Create.cshtml" />
     <Content Include="Views\Necesidades\Delete.cshtml" />
     <Content Include="Views\Necesidades\Details.cshtml" />
     <Content Include="Views\Necesidades\Edit.cshtml" />
     <Content Include="Views\Necesidades\Index.cshtml" />
+    <Content Include="Views\Entidads\Create.cshtml" />
+    <Content Include="Views\Entidads\Delete.cshtml" />
+    <Content Include="Views\Entidads\Details.cshtml" />
+    <Content Include="Views\Entidads\Edit.cshtml" />
+    <Content Include="Views\Entidads\Index.cshtml" />
+    <Content Include="Views\Servicios\Create.cshtml" />
+    <Content Include="Views\Servicios\Delete.cshtml" />
+    <Content Include="Views\Servicios\Details.cshtml" />
+    <Content Include="Views\Servicios\Edit.cshtml" />
+    <Content Include="Views\Servicios\Index.cshtml" />
+    <Content Include="Views\Servicios\Activos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

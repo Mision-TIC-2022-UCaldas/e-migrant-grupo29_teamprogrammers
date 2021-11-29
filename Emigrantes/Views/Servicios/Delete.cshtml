@@ -1,0 +1,81 @@
+﻿@model Emigrantes.Servicios
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Servicios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Servicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Servicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Maximo_Emigrantes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maximo_Emigrantes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Inicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Inicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_fin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_fin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado_Servicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado_Servicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entidad.Razon_Social)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entidad.Razon_Social)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

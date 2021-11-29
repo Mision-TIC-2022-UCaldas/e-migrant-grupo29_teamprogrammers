@@ -59,6 +59,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="EstadoServicio">
+      <EntityTypeMapping TypeName="EmigranteModel.EstadoServicio">
+        <MappingFragment StoreEntitySet="EstadoServicio">
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="EstadoServicio1" ColumnName="EstadoServicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Grupos">
       <EntityTypeMapping TypeName="EmigranteModel.Grupos">
         <MappingFragment StoreEntitySet="Grupos">
@@ -116,7 +124,7 @@
     <EntitySetMapping Name="Servicios">
       <EntityTypeMapping TypeName="EmigranteModel.Servicios">
         <MappingFragment StoreEntitySet="Servicios">
-          <ScalarProperty Name="dI" ColumnName="dI" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Servicio" ColumnName="Servicio" />
           <ScalarProperty Name="Maximo_Emigrantes" ColumnName="Maximo Emigrantes" />
           <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha Inicio" />

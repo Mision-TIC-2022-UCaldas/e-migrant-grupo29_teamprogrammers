@@ -11,8 +11,7 @@ namespace Emigrantes
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Entidad
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,28 +19,20 @@ namespace Emigrantes
         {
             this.Servicios = new HashSet<Servicios>();
         }
-
+    
         public int Id { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public string Razon_Social { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public string Nit { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public string Direccion { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public string Telefono { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public string Correo { get; set; }
         public string Pagina { get; set; }
         public Nullable<int> IdSector { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public string Ciudad { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public Nullable<int> IdTipoSolicitud { get; set; }
-
+    
         public virtual sectorEntidad sectorEntidad { get; set; }
         public virtual tipoSolicitud tipoSolicitud { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Servicios> Servicios { get; set; }
     }

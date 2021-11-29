@@ -1,0 +1,75 @@
+﻿@model Emigrantes.Servicios
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Servicios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Servicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Servicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Maximo_Emigrantes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maximo_Emigrantes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Inicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Inicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_fin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_fin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado_Servicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado_Servicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entidad.Razon_Social)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entidad.Razon_Social)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

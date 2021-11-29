@@ -29,6 +29,7 @@ namespace Emigrantes
         public virtual DbSet<Emigrante> Emigrante { get; set; }
         public virtual DbSet<emigrantesServicios> emigrantesServicios { get; set; }
         public virtual DbSet<Entidad> Entidad { get; set; }
+        public virtual DbSet<EstadoServicio> EstadoServicio { get; set; }
         public virtual DbSet<Grupos> Grupos { get; set; }
         public virtual DbSet<GruposMigrantes> GruposMigrantes { get; set; }
         public virtual DbSet<migrantesNecesidad> migrantesNecesidad { get; set; }

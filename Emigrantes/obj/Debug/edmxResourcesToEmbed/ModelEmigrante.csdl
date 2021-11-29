@@ -54,7 +54,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Razon_Social" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Razon_Social" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
     <Property Name="Nit" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
     <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
     <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
@@ -66,6 +66,13 @@
     <NavigationProperty Name="sectorEntidad" Relationship="Self.FK_Entidad_sectorEntidad" FromRole="Entidad" ToRole="sectorEntidad" />
     <NavigationProperty Name="tipoSolicitud" Relationship="Self.FK_Entidad_tipoSolicitud" FromRole="Entidad" ToRole="tipoSolicitud" />
     <NavigationProperty Name="Servicios" Relationship="Self.FK_Servicios_Entidad" FromRole="Entidad" ToRole="Servicios" />
+  </EntityType>
+  <EntityType Name="EstadoServicio">
+    <Key>
+      <PropertyRef Name="IdEstado" />
+    </Key>
+    <Property Name="IdEstado" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="EstadoServicio1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityType Name="Grupos">
     <Key>
@@ -128,14 +135,14 @@
   </EntityType>
   <EntityType Name="Servicios">
     <Key>
-      <PropertyRef Name="dI" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="dI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Servicio" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
     <Property Name="Maximo_Emigrantes" Type="Int32" />
     <Property Name="Fecha_Inicio" Type="DateTime" Precision="0" />
     <Property Name="Fecha_fin" Type="DateTime" Precision="0" />
-    <Property Name="Estado_Servicio" Type="Double" />
+    <Property Name="Estado_Servicio" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
     <Property Name="IdEntidad" Type="Int32" />
     <NavigationProperty Name="emigrantesServicios" Relationship="Self.FK_emigrantesServicios_Servicios" FromRole="Servicios" ToRole="emigrantesServicios" />
@@ -246,7 +253,7 @@
     <End Role="emigrantesServicios" Type="Self.emigrantesServicios" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Servicios">
-        <PropertyRef Name="dI" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="emigrantesServicios">
         <PropertyRef Name="IdServicio" />
@@ -354,6 +361,7 @@
     <EntitySet Name="Emigrante" EntityType="Self.Emigrante" />
     <EntitySet Name="emigrantesServicios" EntityType="Self.emigrantesServicios" />
     <EntitySet Name="Entidad" EntityType="Self.Entidad" />
+    <EntitySet Name="EstadoServicio" EntityType="Self.EstadoServicio" />
     <EntitySet Name="Grupos" EntityType="Self.Grupos" />
     <EntitySet Name="GruposMigrantes" EntityType="Self.GruposMigrantes" />
     <EntitySet Name="migrantesNecesidad" EntityType="Self.migrantesNecesidad" />

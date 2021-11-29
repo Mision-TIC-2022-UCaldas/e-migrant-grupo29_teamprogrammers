@@ -44,7 +44,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Razon Social" Type="nchar" MaxLength="10" />
+    <Property Name="Razon Social" Type="nchar" MaxLength="50" />
     <Property Name="Nit" Type="nchar" MaxLength="20" />
     <Property Name="Direccion" Type="nchar" MaxLength="100" />
     <Property Name="Telefono" Type="nchar" MaxLength="15" />
@@ -53,6 +53,13 @@
     <Property Name="IdSector" Type="int" />
     <Property Name="Ciudad" Type="nchar" MaxLength="20" />
     <Property Name="IdTipoSolicitud" Type="int" />
+  </EntityType>
+  <EntityType Name="EstadoServicio">
+    <Key>
+      <PropertyRef Name="IdEstado" />
+    </Key>
+    <Property Name="IdEstado" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="EstadoServicio" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Grupos">
     <Key>
@@ -104,14 +111,14 @@
   </EntityType>
   <EntityType Name="Servicios">
     <Key>
-      <PropertyRef Name="dI" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="dI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Servicio" Type="nchar" MaxLength="50" />
     <Property Name="Maximo Emigrantes" Type="int" />
     <Property Name="Fecha Inicio" Type="date" />
     <Property Name="Fecha fin" Type="date" />
-    <Property Name="Estado Servicio" Type="float" />
+    <Property Name="Estado Servicio" Type="nchar" MaxLength="10" />
     <Property Name="Descripcion" Type="nchar" MaxLength="100" />
     <Property Name="IdEntidad" Type="int" />
   </EntityType>
@@ -180,7 +187,7 @@
     <End Role="emigrantesServicios" Type="Self.emigrantesServicios" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Servicios">
-        <PropertyRef Name="dI" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="emigrantesServicios">
         <PropertyRef Name="IdServicio" />
@@ -324,6 +331,7 @@
     <EntitySet Name="Emigrante" EntityType="Self.Emigrante" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="emigrantesServicios" EntityType="Self.emigrantesServicios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Entidad" EntityType="Self.Entidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstadoServicio" EntityType="Self.EstadoServicio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GruposMigrantes" EntityType="Self.GruposMigrantes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="migrantesNecesidad" EntityType="Self.migrantesNecesidad" Schema="dbo" store:Type="Tables" />

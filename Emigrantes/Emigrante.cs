@@ -11,8 +11,7 @@ namespace Emigrantes
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Emigrante
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,26 +23,20 @@ namespace Emigrantes
             this.GruposMigrantes = new HashSet<GruposMigrantes>();
             this.Necesidades = new HashSet<Necesidades>();
         }
-
+    
         public int id { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public string TipoIdentificacion { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public string Identificacion { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public string Nombres { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public string Apellidos { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public string PaisOrigen { get; set; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public Nullable<System.DateTime> Fecha_Nacimiento { get; set; }
         public string Correo { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
         public string Ciudad { get; set; }
         public Nullable<int> IdEstadoLaboral { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Emergencias> Emergencias { get; set; }
         public virtual situacionLaboral situacionLaboral { get; set; }

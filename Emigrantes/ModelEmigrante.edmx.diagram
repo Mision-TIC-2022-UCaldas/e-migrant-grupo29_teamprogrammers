@@ -4,11 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cc20afab0145467e9e1ab487e1635337" Name="Diagram1">
+      <Diagram DiagramId="a3b49c59e6a848f0a20f9b4580e98848" Name="Diagram1">
         <EntityTypeShape EntityType="EmigranteModel.Emergencias" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EmigranteModel.Emigrante" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="EmigranteModel.emigrantesServicios" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="EmigranteModel.Entidad" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmigranteModel.EstadoServicio" Width="1.5" PointX="8.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="EmigranteModel.Grupos" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="EmigranteModel.GruposMigrantes" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="EmigranteModel.migrantesNecesidad" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
@@ -17,8 +18,8 @@
         <EntityTypeShape EntityType="EmigranteModel.sectorEntidad" Width="1.5" PointX="1.5" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="EmigranteModel.Servicios" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EmigranteModel.situacionLaboral" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmigranteModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmigranteModel.tipoSolicitud" Width="1.5" PointX="0.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmigranteModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmigranteModel.tipoSolicitud" Width="1.5" PointX="1.5" PointY="11.375" IsExpanded="true" />
         <AssociationConnector Association="EmigranteModel.FK_Emergencias_Emigrante" ManuallyRouted="false" />
         <AssociationConnector Association="EmigranteModel.FK_Emigrante_situacionLaboral" ManuallyRouted="false" />
         <AssociationConnector Association="EmigranteModel.FK_emigrantesServicios_Emigrante" ManuallyRouted="false" />

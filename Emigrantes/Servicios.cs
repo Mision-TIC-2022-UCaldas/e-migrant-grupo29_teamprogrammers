@@ -11,7 +11,8 @@ namespace Emigrantes
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Servicios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,13 +21,20 @@ namespace Emigrantes
             this.emigrantesServicios = new HashSet<emigrantesServicios>();
         }
     
-        public int dI { get; set; }
+        public int Id { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public string Servicio { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public Nullable<int> Maximo_Emigrantes { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public Nullable<System.DateTime> Fecha_Inicio { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public Nullable<System.DateTime> Fecha_fin { get; set; }
-        public Nullable<double> Estado_Servicio { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
+        public string Estado_Servicio { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public string Descripcion { get; set; }
+        [Required(ErrorMessage = "Campo obligatorio")]
         public Nullable<int> IdEntidad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

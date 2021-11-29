@@ -49,7 +49,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Razon Social" Type="nchar" MaxLength="10" />
+          <Property Name="Razon Social" Type="nchar" MaxLength="50" />
           <Property Name="Nit" Type="nchar" MaxLength="20" />
           <Property Name="Direccion" Type="nchar" MaxLength="100" />
           <Property Name="Telefono" Type="nchar" MaxLength="15" />
@@ -58,6 +58,13 @@
           <Property Name="IdSector" Type="int" />
           <Property Name="Ciudad" Type="nchar" MaxLength="20" />
           <Property Name="IdTipoSolicitud" Type="int" />
+        </EntityType>
+        <EntityType Name="EstadoServicio">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="EstadoServicio" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Grupos">
           <Key>
@@ -109,14 +116,14 @@
         </EntityType>
         <EntityType Name="Servicios">
           <Key>
-            <PropertyRef Name="dI" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="dI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Servicio" Type="nchar" MaxLength="50" />
           <Property Name="Maximo Emigrantes" Type="int" />
           <Property Name="Fecha Inicio" Type="date" />
           <Property Name="Fecha fin" Type="date" />
-          <Property Name="Estado Servicio" Type="float" />
+          <Property Name="Estado Servicio" Type="nchar" MaxLength="10" />
           <Property Name="Descripcion" Type="nchar" MaxLength="100" />
           <Property Name="IdEntidad" Type="int" />
         </EntityType>
@@ -185,7 +192,7 @@
           <End Role="emigrantesServicios" Type="Self.emigrantesServicios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Servicios">
-              <PropertyRef Name="dI" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="emigrantesServicios">
               <PropertyRef Name="IdServicio" />
@@ -329,6 +336,7 @@
           <EntitySet Name="Emigrante" EntityType="Self.Emigrante" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="emigrantesServicios" EntityType="Self.emigrantesServicios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Entidad" EntityType="Self.Entidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoServicio" EntityType="Self.EstadoServicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GruposMigrantes" EntityType="Self.GruposMigrantes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="migrantesNecesidad" EntityType="Self.migrantesNecesidad" Schema="dbo" store:Type="Tables" />
@@ -459,7 +467,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Razon_Social" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Razon_Social" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Nit" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
@@ -471,6 +479,13 @@
           <NavigationProperty Name="sectorEntidad" Relationship="Self.FK_Entidad_sectorEntidad" FromRole="Entidad" ToRole="sectorEntidad" />
           <NavigationProperty Name="tipoSolicitud" Relationship="Self.FK_Entidad_tipoSolicitud" FromRole="Entidad" ToRole="tipoSolicitud" />
           <NavigationProperty Name="Servicios" Relationship="Self.FK_Servicios_Entidad" FromRole="Entidad" ToRole="Servicios" />
+        </EntityType>
+        <EntityType Name="EstadoServicio">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="EstadoServicio1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Grupos">
           <Key>
@@ -533,14 +548,14 @@
         </EntityType>
         <EntityType Name="Servicios">
           <Key>
-            <PropertyRef Name="dI" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="dI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Servicio" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Maximo_Emigrantes" Type="Int32" />
           <Property Name="Fecha_Inicio" Type="DateTime" Precision="0" />
           <Property Name="Fecha_fin" Type="DateTime" Precision="0" />
-          <Property Name="Estado_Servicio" Type="Double" />
+          <Property Name="Estado_Servicio" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="IdEntidad" Type="Int32" />
           <NavigationProperty Name="emigrantesServicios" Relationship="Self.FK_emigrantesServicios_Servicios" FromRole="Servicios" ToRole="emigrantesServicios" />
@@ -651,7 +666,7 @@
           <End Role="emigrantesServicios" Type="Self.emigrantesServicios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Servicios">
-              <PropertyRef Name="dI" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="emigrantesServicios">
               <PropertyRef Name="IdServicio" />
@@ -759,6 +774,7 @@
           <EntitySet Name="Emigrante" EntityType="Self.Emigrante" />
           <EntitySet Name="emigrantesServicios" EntityType="Self.emigrantesServicios" />
           <EntitySet Name="Entidad" EntityType="Self.Entidad" />
+          <EntitySet Name="EstadoServicio" EntityType="Self.EstadoServicio" />
           <EntitySet Name="Grupos" EntityType="Self.Grupos" />
           <EntitySet Name="GruposMigrantes" EntityType="Self.GruposMigrantes" />
           <EntitySet Name="migrantesNecesidad" EntityType="Self.migrantesNecesidad" />
@@ -894,6 +910,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EstadoServicio">
+            <EntityTypeMapping TypeName="EmigranteModel.EstadoServicio">
+              <MappingFragment StoreEntitySet="EstadoServicio">
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="EstadoServicio1" ColumnName="EstadoServicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Grupos">
             <EntityTypeMapping TypeName="EmigranteModel.Grupos">
               <MappingFragment StoreEntitySet="Grupos">
@@ -951,7 +975,7 @@
           <EntitySetMapping Name="Servicios">
             <EntityTypeMapping TypeName="EmigranteModel.Servicios">
               <MappingFragment StoreEntitySet="Servicios">
-                <ScalarProperty Name="dI" ColumnName="dI" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Servicio" ColumnName="Servicio" />
                 <ScalarProperty Name="Maximo_Emigrantes" ColumnName="Maximo Emigrantes" />
                 <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha Inicio" />

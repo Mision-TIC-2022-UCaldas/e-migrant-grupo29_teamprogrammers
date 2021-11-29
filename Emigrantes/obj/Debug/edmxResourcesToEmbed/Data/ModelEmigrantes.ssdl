@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmigrantesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Emergencias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPersona" Type="int" />
+    <Property Name="Descripcion" Type="nchar" MaxLength="30" />
+    <Property Name="Estado" Type="float" />
+  </EntityType>
+  <EntityType Name="Emigrante">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoIdentificacion" Type="nchar" MaxLength="15" />
+    <Property Name="Identificacion" Type="nchar" MaxLength="15" />
+    <Property Name="Nombres" Type="nchar" MaxLength="30" />
+    <Property Name="Apellidos" Type="nchar" MaxLength="30" />
+    <Property Name="PaisOrigen" Type="nchar" MaxLength="15" />
+    <Property Name="Fecha Nacimiento" Type="date" />
+    <Property Name="Correo" Type="nchar" MaxLength="30" />
+    <Property Name="Telefono" Type="nchar" MaxLength="15" />
+    <Property Name="Direccion" Type="nchar" MaxLength="100" />
+    <Property Name="Ciudad" Type="nchar" MaxLength="15" />
+    <Property Name="IdEstadoLaboral" Type="int" />
+  </EntityType>
+  <EntityType Name="emigrantesServicios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdSolicitud" Type="int" />
+    <Property Name="IdPersona" Type="int" />
+    <Property Name="IdServicio" Type="int" />
+    <Property Name="Fecha solicitud" Type="date" />
+    <Property Name="Fecha Respuesta" Type="date" />
+    <Property Name="Estado Solicitud" Type="float" />
+    <Property Name="Evaluacion" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Entidad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Razon Social" Type="nchar" MaxLength="10" />
+    <Property Name="Nit" Type="nchar" MaxLength="20" />
+    <Property Name="Direccion" Type="nchar" MaxLength="100" />
+    <Property Name="Telefono" Type="nchar" MaxLength="15" />
+    <Property Name="Correo" Type="nchar" MaxLength="50" />
+    <Property Name="Pagina" Type="nchar" MaxLength="100" />
+    <Property Name="IdSector" Type="int" />
+    <Property Name="Servicios" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Grupos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPersona" Type="int" />
+    <Property Name="Relacion" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="GruposMigrantes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdEmigrante" Type="int" />
+    <Property Name="IdGrupo" Type="int" />
+  </EntityType>
+  <EntityType Name="migrantesNecesidad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Necesidad" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Necesidades">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPersona" Type="int" Nullable="false" />
+    <Property Name="NombreNecesidad" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Descripcion" Type="nchar" MaxLength="100" />
+    <Property Name="IdPrioridad" Type="int" />
+    <Property Name="IdEmigranteNecesidad" Type="int" />
+  </EntityType>
+  <EntityType Name="prioridadNecesidad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Prioridad" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="sectorEntidad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sector" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Servicios">
+    <Key>
+      <PropertyRef Name="dI" />
+    </Key>
+    <Property Name="dI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Servicio" Type="nchar" MaxLength="50" />
+    <Property Name="Maximo Emigrantes" Type="int" />
+    <Property Name="Fecha Inicio" Type="date" />
+    <Property Name="Fecha fin" Type="date" />
+    <Property Name="Estado Servicio" Type="float" />
+    <Property Name="Descripcion" Type="nchar" MaxLength="100" />
+    <Property Name="IdEntidad" Type="int" />
+  </EntityType>
+  <EntityType Name="situacionLaboral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SituacionL" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tipoSolicitud">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SOLICITUD" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <Association Name="FK_Emergencias_Emigrante">
+    <End Role="Emigrante" Type="Self.Emigrante" Multiplicity="0..1" />
+    <End Role="Emergencias" Type="Self.Emergencias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emigrante">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Emergencias">
+        <PropertyRef Name="IdPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Emigrante_situacionLaboral">
+    <End Role="situacionLaboral" Type="Self.situacionLaboral" Multiplicity="0..1" />
+    <End Role="Emigrante" Type="Self.Emigrante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="situacionLaboral">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Emigrante">
+        <PropertyRef Name="IdEstadoLaboral" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emigrantesServicios_Emigrante">
+    <End Role="Emigrante" Type="Self.Emigrante" Multiplicity="0..1" />
+    <End Role="emigrantesServicios" Type="Self.emigrantesServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emigrante">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="emigrantesServicios">
+        <PropertyRef Name="IdPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emigrantesServicios_Servicios">
+    <End Role="Servicios" Type="Self.Servicios" Multiplicity="0..1" />
+    <End Role="emigrantesServicios" Type="Self.emigrantesServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicios">
+        <PropertyRef Name="dI" />
+      </Principal>
+      <Dependent Role="emigrantesServicios">
+        <PropertyRef Name="IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_emigrantesServicios_tipoSolicitud">
+    <End Role="tipoSolicitud" Type="Self.tipoSolicitud" Multiplicity="0..1" />
+    <End Role="emigrantesServicios" Type="Self.emigrantesServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoSolicitud">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="emigrantesServicios">
+        <PropertyRef Name="IdSolicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Entidad_sectorEntidad">
+    <End Role="sectorEntidad" Type="Self.sectorEntidad" Multiplicity="0..1" />
+    <End Role="Entidad" Type="Self.Entidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sectorEntidad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Entidad">
+        <PropertyRef Name="IdSector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grupos_Emigrante">
+    <End Role="Emigrante" Type="Self.Emigrante" Multiplicity="0..1" />
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emigrante">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Grupos">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GruposMigrantes_Emigrante">
+    <End Role="Emigrante" Type="Self.Emigrante" Multiplicity="0..1" />
+    <End Role="GruposMigrantes" Type="Self.GruposMigrantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emigrante">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="GruposMigrantes">
+        <PropertyRef Name="IdEmigrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GruposMigrantes_Grupos">
+    <End Role="Grupos" Type="Self.Grupos" Multiplicity="0..1" />
+    <End Role="GruposMigrantes" Type="Self.GruposMigrantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="GruposMigrantes">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Necesidades_Emigrante">
+    <End Role="Emigrante" Type="Self.Emigrante" Multiplicity="1" />
+    <End Role="Necesidades" Type="Self.Necesidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emigrante">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Necesidades">
+        <PropertyRef Name="IdPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Necesidades_migrantesNecesidad">
+    <End Role="migrantesNecesidad" Type="Self.migrantesNecesidad" Multiplicity="0..1" />
+    <End Role="Necesidades" Type="Self.Necesidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="migrantesNecesidad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Necesidades">
+        <PropertyRef Name="IdEmigranteNecesidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Necesidades_prioridadNecesidad">
+    <End Role="prioridadNecesidad" Type="Self.prioridadNecesidad" Multiplicity="0..1" />
+    <End Role="Necesidades" Type="Self.Necesidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="prioridadNecesidad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Necesidades">
+        <PropertyRef Name="IdPrioridad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servicios_Entidad">
+    <End Role="Entidad" Type="Self.Entidad" Multiplicity="0..1" />
+    <End Role="Servicios" Type="Self.Servicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entidad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Servicios">
+        <PropertyRef Name="IdEntidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmigrantesModelStoreContainer">
+    <EntitySet Name="Emergencias" EntityType="Self.Emergencias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Emigrante" EntityType="Self.Emigrante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emigrantesServicios" EntityType="Self.emigrantesServicios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entidad" EntityType="Self.Entidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GruposMigrantes" EntityType="Self.GruposMigrantes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="migrantesNecesidad" EntityType="Self.migrantesNecesidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Necesidades" EntityType="Self.Necesidades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="prioridadNecesidad" EntityType="Self.prioridadNecesidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sectorEntidad" EntityType="Self.sectorEntidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servicios" EntityType="Self.Servicios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="situacionLaboral" EntityType="Self.situacionLaboral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipoSolicitud" EntityType="Self.tipoSolicitud" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Emergencias_Emigrante" Association="Self.FK_Emergencias_Emigrante">
+      <End Role="Emigrante" EntitySet="Emigrante" />
+      <End Role="Emergencias" EntitySet="Emergencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Emigrante_situacionLaboral" Association="Self.FK_Emigrante_situacionLaboral">
+      <End Role="situacionLaboral" EntitySet="situacionLaboral" />
+      <End Role="Emigrante" EntitySet="Emigrante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emigrantesServicios_Emigrante" Association="Self.FK_emigrantesServicios_Emigrante">
+      <End Role="Emigrante" EntitySet="Emigrante" />
+      <End Role="emigrantesServicios" EntitySet="emigrantesServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emigrantesServicios_Servicios" Association="Self.FK_emigrantesServicios_Servicios">
+      <End Role="Servicios" EntitySet="Servicios" />
+      <End Role="emigrantesServicios" EntitySet="emigrantesServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_emigrantesServicios_tipoSolicitud" Association="Self.FK_emigrantesServicios_tipoSolicitud">
+      <End Role="tipoSolicitud" EntitySet="tipoSolicitud" />
+      <End Role="emigrantesServicios" EntitySet="emigrantesServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Entidad_sectorEntidad" Association="Self.FK_Entidad_sectorEntidad">
+      <End Role="sectorEntidad" EntitySet="sectorEntidad" />
+      <End Role="Entidad" EntitySet="Entidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grupos_Emigrante" Association="Self.FK_Grupos_Emigrante">
+      <End Role="Emigrante" EntitySet="Emigrante" />
+      <End Role="Grupos" EntitySet="Grupos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GruposMigrantes_Emigrante" Association="Self.FK_GruposMigrantes_Emigrante">
+      <End Role="Emigrante" EntitySet="Emigrante" />
+      <End Role="GruposMigrantes" EntitySet="GruposMigrantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GruposMigrantes_Grupos" Association="Self.FK_GruposMigrantes_Grupos">
+      <End Role="Grupos" EntitySet="Grupos" />
+      <End Role="GruposMigrantes" EntitySet="GruposMigrantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Necesidades_Emigrante" Association="Self.FK_Necesidades_Emigrante">
+      <End Role="Emigrante" EntitySet="Emigrante" />
+      <End Role="Necesidades" EntitySet="Necesidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Necesidades_migrantesNecesidad" Association="Self.FK_Necesidades_migrantesNecesidad">
+      <End Role="migrantesNecesidad" EntitySet="migrantesNecesidad" />
+      <End Role="Necesidades" EntitySet="Necesidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Necesidades_prioridadNecesidad" Association="Self.FK_Necesidades_prioridadNecesidad">
+      <End Role="prioridadNecesidad" EntitySet="prioridadNecesidad" />
+      <End Role="Necesidades" EntitySet="Necesidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servicios_Entidad" Association="Self.FK_Servicios_Entidad">
+      <End Role="Entidad" EntitySet="Entidad" />
+      <End Role="Servicios" EntitySet="Servicios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

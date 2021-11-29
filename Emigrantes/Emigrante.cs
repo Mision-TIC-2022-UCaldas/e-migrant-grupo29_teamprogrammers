@@ -24,7 +24,7 @@ namespace Emigrantes
             this.GruposMigrantes = new HashSet<GruposMigrantes>();
             this.Necesidades = new HashSet<Necesidades>();
         }
-    
+
         public int id { get; set; }
         [Required(ErrorMessage = "Campo obligatorio")]
         public string TipoIdentificacion { get; set; }
@@ -43,7 +43,7 @@ namespace Emigrantes
         public string Direccion { get; set; }
         public string Ciudad { get; set; }
         public Nullable<int> IdEstadoLaboral { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Emergencias> Emergencias { get; set; }
         public virtual situacionLaboral situacionLaboral { get; set; }

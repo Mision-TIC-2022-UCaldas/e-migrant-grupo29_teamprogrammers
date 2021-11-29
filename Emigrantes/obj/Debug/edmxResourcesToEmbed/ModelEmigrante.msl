@@ -90,10 +90,10 @@
         <MappingFragment StoreEntitySet="Necesidades">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
-          <ScalarProperty Name="NombreNecesidad" ColumnName="NombreNecesidad" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="IdPrioridad" ColumnName="IdPrioridad" />
           <ScalarProperty Name="IdEmigranteNecesidad" ColumnName="IdEmigranteNecesidad" />
+          <ScalarProperty Name="IdTipoServicio" ColumnName="IdTipoServicio" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

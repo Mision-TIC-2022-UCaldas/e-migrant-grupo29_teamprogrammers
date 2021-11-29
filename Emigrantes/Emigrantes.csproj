@@ -132,6 +132,7 @@
     <Compile Include="Controllers\EmigrantesController.cs" />
     <Compile Include="Controllers\EntidadsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NecesidadesController.cs" />
     <Compile Include="Emergencias.cs">
       <DependentUpon>ModelEmigrante.tt</DependentUpon>
     </Compile>
@@ -266,6 +267,11 @@
     <Content Include="Views\Entidads\Details.cshtml" />
     <Content Include="Views\Entidads\Edit.cshtml" />
     <Content Include="Views\Entidads\Index.cshtml" />
+    <Content Include="Views\Necesidades\Create.cshtml" />
+    <Content Include="Views\Necesidades\Delete.cshtml" />
+    <Content Include="Views\Necesidades\Details.cshtml" />
+    <Content Include="Views\Necesidades\Edit.cshtml" />
+    <Content Include="Views\Necesidades\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,6 +19,7 @@ namespace Emigrantes
         {
             this.emigrantesServicios = new HashSet<emigrantesServicios>();
             this.Entidad = new HashSet<Entidad>();
+            this.Necesidades = new HashSet<Necesidades>();
         }
     
         public int Id { get; set; }
@@ -28,5 +29,7 @@ namespace Emigrantes
         public virtual ICollection<emigrantesServicios> emigrantesServicios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Entidad> Entidad { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Necesidades> Necesidades { get; set; }
     }
 }

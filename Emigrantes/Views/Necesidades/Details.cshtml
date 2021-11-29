@@ -1,0 +1,83 @@
+﻿@model Emigrantes.Necesidades
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Necesidades</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emigrante.Nombres)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Emigrante.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emigrante.Apellidos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Emigrante.Apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emigrante.TipoIdentificacion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Emigrante.TipoIdentificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emigrante.Identificacion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Emigrante.Identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emigrante.Telefono)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Emigrante.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emigrante.PaisOrigen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Emigrante.PaisOrigen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipoSolicitud.Solicitud)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tipoSolicitud.Solicitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prioridadNecesidad.Prioridad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.prioridadNecesidad.Prioridad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

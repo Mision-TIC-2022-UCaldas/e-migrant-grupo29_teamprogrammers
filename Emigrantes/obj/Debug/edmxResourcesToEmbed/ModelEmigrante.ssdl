@@ -83,10 +83,10 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdPersona" Type="int" Nullable="false" />
-    <Property Name="NombreNecesidad" Type="nchar" MaxLength="30" Nullable="false" />
     <Property Name="Descripcion" Type="nchar" MaxLength="100" />
     <Property Name="IdPrioridad" Type="int" />
     <Property Name="IdEmigranteNecesidad" Type="int" />
+    <Property Name="IdTipoServicio" Type="int" />
   </EntityType>
   <EntityType Name="prioridadNecesidad">
     <Key>
@@ -295,6 +295,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Necesidades_tipoSolicitud">
+    <End Role="tipoSolicitud" Type="Self.tipoSolicitud" Multiplicity="0..1" />
+    <End Role="Necesidades" Type="Self.Necesidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoSolicitud">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Necesidades">
+        <PropertyRef Name="IdTipoServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Servicios_Entidad">
     <End Role="Entidad" Type="Self.Entidad" Multiplicity="0..1" />
     <End Role="Servicios" Type="Self.Servicios" Multiplicity="*" />
@@ -372,6 +384,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Necesidades_prioridadNecesidad" Association="Self.FK_Necesidades_prioridadNecesidad">
       <End Role="prioridadNecesidad" EntitySet="prioridadNecesidad" />
+      <End Role="Necesidades" EntitySet="Necesidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Necesidades_tipoSolicitud" Association="Self.FK_Necesidades_tipoSolicitud">
+      <End Role="tipoSolicitud" EntitySet="tipoSolicitud" />
       <End Role="Necesidades" EntitySet="Necesidades" />
     </AssociationSet>
     <AssociationSet Name="FK_Servicios_Entidad" Association="Self.FK_Servicios_Entidad">

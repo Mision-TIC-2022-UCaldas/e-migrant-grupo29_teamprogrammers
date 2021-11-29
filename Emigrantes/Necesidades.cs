@@ -16,13 +16,14 @@ namespace Emigrantes
     {
         public int id { get; set; }
         public int IdPersona { get; set; }
-        public string NombreNecesidad { get; set; }
         public string Descripcion { get; set; }
         public Nullable<int> IdPrioridad { get; set; }
         public Nullable<int> IdEmigranteNecesidad { get; set; }
+        public Nullable<int> IdTipoServicio { get; set; }
     
         public virtual Emigrante Emigrante { get; set; }
         public virtual migrantesNecesidad migrantesNecesidad { get; set; }
         public virtual prioridadNecesidad prioridadNecesidad { get; set; }
+        public virtual tipoSolicitud tipoSolicitud { get; set; }
     }
 }

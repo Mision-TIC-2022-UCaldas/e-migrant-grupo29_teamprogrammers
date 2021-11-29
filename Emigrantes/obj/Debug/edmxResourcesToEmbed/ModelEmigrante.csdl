@@ -101,13 +101,14 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdPersona" Type="Int32" Nullable="false" />
-    <Property Name="NombreNecesidad" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
     <Property Name="IdPrioridad" Type="Int32" />
     <Property Name="IdEmigranteNecesidad" Type="Int32" />
+    <Property Name="IdTipoServicio" Type="Int32" />
     <NavigationProperty Name="Emigrante" Relationship="Self.FK_Necesidades_Emigrante" FromRole="Necesidades" ToRole="Emigrante" />
     <NavigationProperty Name="migrantesNecesidad" Relationship="Self.FK_Necesidades_migrantesNecesidad" FromRole="Necesidades" ToRole="migrantesNecesidad" />
     <NavigationProperty Name="prioridadNecesidad" Relationship="Self.FK_Necesidades_prioridadNecesidad" FromRole="Necesidades" ToRole="prioridadNecesidad" />
+    <NavigationProperty Name="tipoSolicitud" Relationship="Self.FK_Necesidades_tipoSolicitud" FromRole="Necesidades" ToRole="tipoSolicitud" />
   </EntityType>
   <EntityType Name="prioridadNecesidad">
     <Key>
@@ -166,6 +167,7 @@
     <Property Name="Solicitud" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="emigrantesServicios" Relationship="Self.FK_emigrantesServicios_tipoSolicitud" FromRole="tipoSolicitud" ToRole="emigrantesServicios" />
     <NavigationProperty Name="Entidad" Relationship="Self.FK_Entidad_tipoSolicitud" FromRole="tipoSolicitud" ToRole="Entidad" />
+    <NavigationProperty Name="Necesidades" Relationship="Self.FK_Necesidades_tipoSolicitud" FromRole="tipoSolicitud" ToRole="Necesidades" />
   </EntityType>
   <Association Name="FK_Emergencias_Emigrante">
     <End Role="Emigrante" Type="Self.Emigrante" Multiplicity="0..1" />
@@ -335,6 +337,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Necesidades_tipoSolicitud">
+    <End Role="tipoSolicitud" Type="Self.tipoSolicitud" Multiplicity="0..1" />
+    <End Role="Necesidades" Type="Self.Necesidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoSolicitud">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Necesidades">
+        <PropertyRef Name="IdTipoServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="EmigranteEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Emergencias" EntityType="Self.Emergencias" />
     <EntitySet Name="Emigrante" EntityType="Self.Emigrante" />
@@ -404,6 +418,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Necesidades_prioridadNecesidad" Association="Self.FK_Necesidades_prioridadNecesidad">
       <End Role="prioridadNecesidad" EntitySet="prioridadNecesidad" />
+      <End Role="Necesidades" EntitySet="Necesidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Necesidades_tipoSolicitud" Association="Self.FK_Necesidades_tipoSolicitud">
+      <End Role="tipoSolicitud" EntitySet="tipoSolicitud" />
       <End Role="Necesidades" EntitySet="Necesidades" />
     </AssociationSet>
   </EntityContainer>

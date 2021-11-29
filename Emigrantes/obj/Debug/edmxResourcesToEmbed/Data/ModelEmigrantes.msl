@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EmigrantesModelStoreContainer" CdmEntityContainer="EmigrantesEntities">
+  <EntityContainerMapping StorageEntityContainer="EmigrantesModelStoreContainer" CdmEntityContainer="EmigrantesEntities1">
     <EntitySetMapping Name="Emergencias">
       <EntityTypeMapping TypeName="EmigrantesModel.Emergencias">
         <MappingFragment StoreEntitySet="Emergencias">
@@ -55,6 +55,14 @@
           <ScalarProperty Name="Pagina" ColumnName="Pagina" />
           <ScalarProperty Name="IdSector" ColumnName="IdSector" />
           <ScalarProperty Name="Servicios" ColumnName="Servicios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estadoServicio">
+      <EntityTypeMapping TypeName="EmigrantesModel.estadoServicio">
+        <MappingFragment StoreEntitySet="estadoServicio">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -120,9 +128,9 @@
           <ScalarProperty Name="Maximo_Emigrantes" ColumnName="Maximo Emigrantes" />
           <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha Inicio" />
           <ScalarProperty Name="Fecha_fin" ColumnName="Fecha fin" />
-          <ScalarProperty Name="Estado_Servicio" ColumnName="Estado Servicio" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="IdEntidad" ColumnName="IdEntidad" />
+          <ScalarProperty Name="IdServicios" ColumnName="IdServicios" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

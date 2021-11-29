@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="ConexionBD\Conexion.cs" />
+    <Compile Include="Controllers\BuscarEmigrantesController.cs" />
     <Compile Include="Controllers\EmigrantesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NecesidadesController.cs" />
@@ -143,6 +144,9 @@
       <DependentUpon>ModelEmigrantes.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Entidad.cs">
+      <DependentUpon>ModelEmigrantes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\estadoServicio.cs">
       <DependentUpon>ModelEmigrantes.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Grupos.cs">
@@ -208,8 +212,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Data\ModelEmigrantes.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelEmigrantes.Context.cs</LastGenOutput>
       <DependentUpon>ModelEmigrantes.edmx</DependentUpon>
+      <LastGenOutput>ModelEmigrantes.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Data\ModelEmigrantes.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -278,6 +282,7 @@
     <Content Include="Views\Servicios\Details.cshtml" />
     <Content Include="Views\Servicios\Edit.cshtml" />
     <Content Include="Views\Servicios\Index.cshtml" />
+    <Content Include="Views\BuscarEmigrantes\Buscar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

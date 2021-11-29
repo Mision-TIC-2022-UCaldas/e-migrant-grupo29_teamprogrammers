@@ -12,26 +12,18 @@ namespace Emigrantes.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Entidad
+    public partial class estadoServicio
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Entidad()
+        public estadoServicio()
         {
-            this.Servicios1 = new HashSet<Servicios>();
+            this.Servicios = new HashSet<Servicios>();
         }
     
         public int Id { get; set; }
-        public string Razon_Social { get; set; }
-        public string Nit { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
-        public string Correo { get; set; }
-        public string Pagina { get; set; }
-        public Nullable<int> IdSector { get; set; }
-        public string Servicios { get; set; }
+        public string Estado { get; set; }
     
-        public virtual sectorEntidad sectorEntidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Servicios> Servicios1 { get; set; }
+        public virtual ICollection<Servicios> Servicios { get; set; }
     }
 }

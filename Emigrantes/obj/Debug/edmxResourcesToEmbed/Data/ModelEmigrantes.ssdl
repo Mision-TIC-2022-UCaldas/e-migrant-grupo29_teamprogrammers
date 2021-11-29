@@ -53,6 +53,13 @@
     <Property Name="IdSector" Type="int" />
     <Property Name="Servicios" Type="nchar" MaxLength="20" />
   </EntityType>
+  <EntityType Name="estadoServicio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Estado" Type="nchar" MaxLength="20" />
+  </EntityType>
   <EntityType Name="Grupos">
     <Key>
       <PropertyRef Name="id" />
@@ -110,9 +117,9 @@
     <Property Name="Maximo Emigrantes" Type="int" />
     <Property Name="Fecha Inicio" Type="date" />
     <Property Name="Fecha fin" Type="date" />
-    <Property Name="Estado Servicio" Type="float" />
     <Property Name="Descripcion" Type="nchar" MaxLength="100" />
     <Property Name="IdEntidad" Type="int" />
+    <Property Name="IdServicios" Type="int" />
   </EntityType>
   <EntityType Name="situacionLaboral">
     <Key>
@@ -294,11 +301,24 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Servicios_estadoServicio">
+    <End Role="estadoServicio" Type="Self.estadoServicio" Multiplicity="0..1" />
+    <End Role="Servicios" Type="Self.Servicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estadoServicio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Servicios">
+        <PropertyRef Name="IdServicios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="EmigrantesModelStoreContainer">
     <EntitySet Name="Emergencias" EntityType="Self.Emergencias" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Emigrante" EntityType="Self.Emigrante" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="emigrantesServicios" EntityType="Self.emigrantesServicios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Entidad" EntityType="Self.Entidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="estadoServicio" EntityType="Self.estadoServicio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Grupos" EntityType="Self.Grupos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GruposMigrantes" EntityType="Self.GruposMigrantes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="migrantesNecesidad" EntityType="Self.migrantesNecesidad" Schema="dbo" store:Type="Tables" />
@@ -359,6 +379,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Servicios_Entidad" Association="Self.FK_Servicios_Entidad">
       <End Role="Entidad" EntitySet="Entidad" />
+      <End Role="Servicios" EntitySet="Servicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servicios_estadoServicio" Association="Self.FK_Servicios_estadoServicio">
+      <End Role="estadoServicio" EntitySet="estadoServicio" />
       <End Role="Servicios" EntitySet="Servicios" />
     </AssociationSet>
   </EntityContainer>

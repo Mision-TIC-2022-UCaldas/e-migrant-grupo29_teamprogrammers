@@ -17,7 +17,6 @@ namespace Emigrantes.Controllers
         // GET: Emigrantes
         public ActionResult Index()
         {
-            
             var emigrante = db.Emigrante.Include(e => e.situacionLaboral);
             return View(emigrante.ToList());
         }

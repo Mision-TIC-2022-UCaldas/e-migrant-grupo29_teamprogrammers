@@ -13,10 +13,10 @@ namespace Emigrantes.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EmigrantesEntities : DbContext
+    public partial class EmigrantesEntities1 : DbContext
     {
-        public EmigrantesEntities()
-            : base("name=EmigrantesEntities")
+        public EmigrantesEntities1()
+            : base("name=EmigrantesEntities1")
         {
         }
     
@@ -29,6 +29,7 @@ namespace Emigrantes.Data
         public virtual DbSet<Emigrante> Emigrante { get; set; }
         public virtual DbSet<emigrantesServicios> emigrantesServicios { get; set; }
         public virtual DbSet<Entidad> Entidad { get; set; }
+        public virtual DbSet<estadoServicio> estadoServicio { get; set; }
         public virtual DbSet<Grupos> Grupos { get; set; }
         public virtual DbSet<GruposMigrantes> GruposMigrantes { get; set; }
         public virtual DbSet<migrantesNecesidad> migrantesNecesidad { get; set; }

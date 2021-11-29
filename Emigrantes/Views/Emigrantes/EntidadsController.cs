@@ -12,7 +12,7 @@ namespace Emigrantes.Views.Emigrantes
 {
     public class EntidadsController : Controller
     {
-        private EmigrantesEntities db = new EmigrantesEntities();
+        private EmigrantesEntities1 db = new EmigrantesEntities1();
 
         // GET: Entidads
         public ActionResult Index()

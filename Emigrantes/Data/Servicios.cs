@@ -25,12 +25,13 @@ namespace Emigrantes.Data
         public Nullable<int> Maximo_Emigrantes { get; set; }
         public Nullable<System.DateTime> Fecha_Inicio { get; set; }
         public Nullable<System.DateTime> Fecha_fin { get; set; }
-        public Nullable<double> Estado_Servicio { get; set; }
         public string Descripcion { get; set; }
         public Nullable<int> IdEntidad { get; set; }
+        public Nullable<int> IdServicios { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<emigrantesServicios> emigrantesServicios { get; set; }
         public virtual Entidad Entidad { get; set; }
+        public virtual estadoServicio estadoServicio { get; set; }
     }
 }
